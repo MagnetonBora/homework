@@ -1,4 +1,5 @@
 class WeightedGraph(dict):
+
     def __init__(self):
         super().__init__(self)
         self._totalLengthUpperBound = 1
@@ -38,4 +39,3 @@ class WeightedGraph(dict):
     @property
     def totalLengthUpperBound(self):
         return self._totalLengthUpperBound
-        

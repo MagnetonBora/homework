@@ -1,10 +1,3 @@
-"""UnionFind.py
-
-Union-find data structure. Based on Josiah Carlson's code,
-http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/215912
-with significant additional changes by D. Eppstein.
-"""
-
 class UnionFind:
     """Union-find data structure.
 
@@ -23,13 +16,10 @@ class UnionFind:
     """
 
     def __init__(self):
-        """Create a new empty union-find structure."""
         self.weights = {}
         self.parents = {}
 
     def __getitem__(self, object):
-        """Find and return the name of the set containing the object."""
-
         # check for previously unknown object
         if object not in self.parents:
             self.parents[object] = object
@@ -49,11 +39,9 @@ class UnionFind:
         return root
         
     def __iter__(self):
-        """Iterate through all items ever found or unioned by this structure."""
         return iter(self.parents)
 
     def union(self, *objects):
-        """Find the sets containing the objects and merge them all."""
         roots = [self[x] for x in objects]
         heaviest = max([(self.weights[r],r) for r in roots])[1]
         for r in roots:
